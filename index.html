@@ -8,8 +8,9 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -228,21 +229,14 @@
 </head>
 <body>
     <main>
-        <form id="commentForm" action="javascript:void(0)" onsubmit="enviarWhatsApp()">
-            <h2>Nombre y Apellido</h2>
-            <input id="nombre_apellido" name="nombre_apellido" placeholder="Escribir" required/>
-            <h2>Comentario</h2>
-            <textarea rows="5" id="comentario" placeholder="Ingrese comentario" name="comentario" required></textarea>
-            <br>
-            <input type="submit" value="Enviar" />
-        </form>
-        
-        <h1>MAGIS TV, MAGNA PLAYER, KRAKEN TV Y MUCHOS MÁS</h1> 
-        <h2>Escríbenos al WhatsApp: 0994937356</h2>
-        <p>- JB les atenderá con mucho gusto.</p>
-        <p>- Televisión por internet, la mejor opción en la actualidad.</p>
-        <p>- Deja de pagar esas planillas altas de television por cable y mejor contrata Streaming.</p>
-        <hr>
+        <body style="font-family: 'Franklin Gothic Medium', sans-serif;">
+            <h1>MAGIS TV, MAGNA PLAYER, KRAKEN TV Y MUCHOS MÁS</h1> 
+            <h2>Escríbenos al WhatsApp: 0994937356</h2>
+            <p>- JB les atenderá con mucho gusto.</p>
+            <p>- Televisión por internet, la mejor opción en la actualidad.</p>
+            <p>- Deja de pagar esas planillas altas de television por cable y mejor contrata Streaming.</p>
+            <hr>
+        </body>
         
         <h1>Solo necesitas dispositivos Android para poder realizar la instalación y disfrutar del servicio</h1> 
         <h2>Dispositivos compatibles:</h2>
@@ -262,7 +256,15 @@
         
         <a class="youtube-btn" target="_blank" href="https://youtu.be/Wadc2LUF7no">▶ Conoce sobre nosotros en YouTube</a><br><br>
         <img src="magistv.png" width="650" alt="Magis TV"/>
-        
+        <br><br>
+        <form id="commentForm" action="javascript:void(0)" onsubmit="enviarWhatsApp()">
+            <h2>Nombre y Apellido</h2>
+            <input id="nombre_apellido" name="nombre_apellido" placeholder="Escribir" required/>
+            <h2>Comentario</h2>
+            <textarea rows="5" id="comentario" placeholder="Ingrese comentario" name="comentario" required></textarea>
+            <br>
+            <input type="submit" value="Enviar" />
+        </form> 
         <!-- Galería de imágenes -->
         <div class="gallery">
             <img src="img/IMAGEN 1.jpg" alt="Imagen 1">
