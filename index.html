@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Streaming JB</title>
+    <link rel="icon" href="icono.jpg" type="image/jpg">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Estilos generales (para computadoras) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex-grow: 1;
+            padding: 40px 20px;
+        }
+        form {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+        input, textarea {
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border: none;
+        }
+        input[type="submit"] {
+            background: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 16px;
+        }
+        h1, h2, h3 {
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 1px solid white;
+            margin: 30px auto;
+            width: 80%;
+        }
+        img {
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            width: 100%;
+            height: auto;
+            max-width: 650px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: fit-content;
+        }
+        ul li {
+            text-align: left;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .youtube-btn {
+            display: inline-block;
+            background: red;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .youtube-btn:hover {
+            transform: scale(1.1);
+            background: #ff3300;
+        }
+        .contact-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 40px auto;
+            width: 60%;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+        .contact-container p {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .copyright {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            margin-top: 40px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            border: 3px solid #fff;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+            border: 3px solid #ff6600;
+        }
+        .gallery img:last-child {
+            grid-column: span 3;
+            height: 400px;
+            object-fit: contain;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease-in-out;
+            display: block;
+            border: 5px solid #fff;
+            padding: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+        .gallery img:last-child:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            border: 5px solid #ff6600;
+        }
+
+        /* Estilos solo para móviles (max-width: 480px) */
+        @media (max-width: 480px) {
+            h1, h2, h3 {
+                font-size: 1.2em; /* Reducir el tamaño de los títulos */
+            }
+            p {
+                font-size: 0.9em; /* Reducir el tamaño del texto */
+            }
+            form {
+                width: 90%; /* Ajustar el ancho del formulario */
+                padding: 15px; /* Reducir el padding */
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en móviles */
+                gap: 10px; /* Reducir el espacio entre imágenes */
+            }
+            .gallery img {
+                height: 150px; /* Reducir la altura de las imágenes */
+                object-fit: cover; /* Asegurar que las imágenes cubran el espacio */
+            }
+            .gallery img:last-child {
+                grid-column: span 2; /* La última imagen ocupa dos columnas */
+                height: 200px; /* Reducir la altura */
+                object-fit: contain; /* Ajustar la imagen sin recortar */
+            }
+            .contact-container {
+                width: 90%; /* Ajustar el ancho del contenedor de contacto */
+                padding: 10px; /* Reducir el padding */
+            }
+            .contact-container p {
+                font-size: 0.9em; /* Reducir el tamaño del texto */
+            }
+            .youtube-btn {
+                padding: 10px 20px; /* Reducir el padding del botón */
+                font-size: 0.9em; /* Reducir el tamaño del texto */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>🌟 MAGIS TV, MAGMA PLAYER, KRAKEN TV Y MUCHOS MÁS 🌟</h1> 
+        <h2>📲 Escríbenos al WhatsApp: <span style="color: #00ff99;">0994937356</span></h2>
+        <p>✔ JB les atenderá con mucho gusto.</p>
+        <p>✔ <span class="highlight">Televisión por internet</span>, la mejor opción en la actualidad.</p>
+        <p>✔ Deja de pagar planillas altas de TV por cable y pásate al <span class="highlight">Streaming</span>.</p>
+        <hr>
+        
+        <h1>📌 Solo necesitas dispositivos Android para instalar y disfrutar del servicio</h1> 
+        <h2>Dispositivos compatibles:</h2>
+        <ul>
+            <li>✔ Amazon Fire TV</li>
+            <li>✔ Android TV Box</li>
+            <li>✔ Android TV Google Chromecast</li>
+            <li>✔ TV Android</li>
+            <li>✔ Smartphone y Tablet</li>
+            <li>✔ Xiaomi Box (MI BOX 4K)</li>
+        </ul>
+        
+        <p>
+            <strong>JB Streaming</strong> <span style="color: #4CAF50; font-weight: bold;">Somos un servicio de Streaming por internet de varias plataformas.</span>
+        </p>
+        
+        <a class="youtube-btn" target="_blank" href="https://youtu.be/Wadc2LUF7no">▶ Conoce sobre nosotros en YouTube</a><br><br>
+        <img src="magistv.png" width="650" alt="Magis TV"/>
+        <br><br>
+        <form id="commentForm" action="javascript:void(0)" onsubmit="enviarWhatsApp()">
+            <h2>Nombre y Apellido</h2>
+            <input id="nombre_apellido" name="nombre_apellido" placeholder="Escribir" required/>
+            <h2>Comentario</h2>
+            <textarea rows="5" id="comentario" placeholder="Ingrese comentario" name="comentario" required></textarea>
+            <br>
+            <input type="submit" value="Enviar" />
+        </form> 
+        <!-- Galería de imágenes -->
+        <div class="gallery">
+            <img src="img/IMAGEN 1.jpg" alt="Imagen 1">
+            <img src="img/IMAGEN 2.png" alt="Imagen 2">
+            <img src="img/IMAGEN 3.png" alt="Imagen 3">
+            <img src="img/IMAGEN 4.webp" alt="Imagen 4">
+            <img src="img/IMAGEN 5.jpg" alt="Imagen 5">
+            <img src="img/IMAGEN 6.webp" alt="Imagen 6">
+            <img src="img/IMAGEN 7.jpg" alt="Imagen 7">
+        </div>
+
+        <div class="contact-container">
+            <p>📩 Contacto: magistvbron95@gmail.com</p>
+        </div>
+    </main>
+
+    <div class="copyright">
+        &copy; 2025 JB Streaming. Todos los derechos reservados.
+    </div>
+
+    <script>
+        function enviarWhatsApp() {
+            var comentario = document.getElementById("comentario").value;
+            var nombreApellido = document.getElementById("nombre_apellido").value;
+            
+            var mensaje = `Comentario de ${nombreApellido}: ${comentario}`;
+            var enlaceWhatsApp = `https://wa.me/+593994937356?text=${encodeURIComponent(mensaje)}`;
+            
+            window.open(enlaceWhatsApp, '_blank');
+            
+            Swal.fire({
+                title: '¡Gracias!',
+                text: 'Su comentario ha sido enviado con éxito.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        }
+    </script>
+</body>
+</html>
+
+
