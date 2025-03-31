@@ -7,6 +7,60 @@
     <link rel="icon" href="icono.jpg" type="image/jpg">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+        /* VENTANA MANTENIMIENTO */
+                body > * {
+            display: none;
+        }
+
+        /* Mostrar solo el modal */
+        body #mantenimientoModal {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Diseño del modal */
+        .modal-content {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            border-bottom: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            font-size: 1.2rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .btn-cerrar {
+            background: white;
+            color: #ff7e5f;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-cerrar:hover {
+            background: #feb47b;
+            color: white;
+        }
+        /* VENTANA MANTENIMIENTO */
+        
         /* Estilos generales (para computadoras) */
         * {
             margin: 0;
@@ -207,6 +261,21 @@
     </style>
 </head>
 <body>
+    <!-- VENTANA MANTENIMIENTO -->
+    <!-- Modal de Mantenimiento -->
+<div class="modal fade" id="mantenimientoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Aviso de Mantenimiento</h5>
+      </div>
+      <div class="modal-body">
+        La página está en mantenimiento. Inténtelo más tarde.
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- VENTANA MANTENIMIENTO -->
     <main>
         <h1>🌟 MAGIS TV, MAGMA PLAYER, KRAKEN TV Y MUCHOS MÁS 🌟</h1> 
         <h2>📲 Escríbenos al WhatsApp: <span style="color: #00ff99;">0994937356</span></h2>
@@ -278,6 +347,16 @@
                 confirmButtonText: 'Aceptar'
             });
         }
+        // VENTANA MANTENIMIENTO
+        document.addEventListener("DOMContentLoaded", function() {
+    var myModal = new bootstrap.Modal(document.getElementById('mantenimientoModal'), {
+        backdrop: 'static', // Evita que se cierre haciendo clic fuera
+        keyboard: false // Evita que se cierre con "Esc"
+    });
+    myModal.show();
+});
+
+        //VENTANA MANTENIMIENTO
     </script>
 </body>
 </html>
